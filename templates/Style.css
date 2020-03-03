@@ -1,0 +1,35 @@
+body{
+    background-color: black;
+    background-attachment: fixed;
+    font-family: 'Gill Sans';
+    font-style: italic;
+}
+h1{
+    color: aliceblue;
+    text-align: center;
+    background-color: darkcyan;
+    width: 500px;
+    margin: auto;
+}
+h3{
+    color: cyan;
+}
+input{
+    background-color:white;
+    border-width: 2px;
+    border-color:blue;
+    border-style: solid;
+    margin: 2px;
+}
+form{
+    width: 500px;
+    height: 150px;
+    margin: auto;
+    text-align: center;
+    background-color: brown;
+}
+.submit{
+    width: 100px;
+    height: 60px;
+    color: darkred;
+}

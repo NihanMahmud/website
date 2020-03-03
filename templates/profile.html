@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <title>Profile</title>
+        <style>
+            body{
+                background-color: black;
+                font-family: Georgia;
+                font-style: italic;
+            }
+            h3{
+                color: cornsilk;
+                text-align: center;
+            }
+            label{
+                color:burlywood;
+                size: 12px;
+            }
+            .text-box{
+                width: 250px;
+                background-color: white;
+                border-color: crimson;
+                border-width: 2px;
+                border-style: solid;
+                overflow: auto;
+            }
+            </style>
+    </head>
+    <body>
+        <h3>Welcome {{username}}!</h3>
+        <label for="text-box">Your text box : </label>
+        <form action="/profile/receivedata" method="POST">
+        <input type="text" class="text-box" name="text">
+        <input type="submit">
+        <p name="username">{{username}}</p>
+        </form>
+        <a href="/profile/data">Data</a>
+    </body>
+</html>

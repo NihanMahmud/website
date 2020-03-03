@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <title>Log In</title>
+        <style>
+            h1{
+                color: aliceblue;
+                text-align: center;
+                background-color: darkcyan;
+                width: 500px;
+                margin: auto;
+            }
+            body{
+                background-color: black;
+            }
+            form{
+                width: 500px;
+                height: 150px;
+                margin: auto;
+                text-align: center;
+                background-color: brown;
+            }
+            input{
+                background-color:white;
+                border-width: 2px;
+                border-color:blue;
+                border-style: solid;
+                margin: 2px;
+            }
+            h3{
+                color: cyan;
+            }
+            .submit{
+                width: 100px;
+                height: 60px;
+                color: darkred;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Sign In</h1>
+        <form action="/profile" method="POST">
+            <h3>Name : <input type="text" name="username" placeholder="Enter Your Name"></h3>
+            <h3>Email : <input type="email" name="email" placeholder="Enter Your Email"></h3>
+            <input type="submit" value="Submit" class="submit">
+        </form>
+    </body>
+</html>
