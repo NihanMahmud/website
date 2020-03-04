@@ -2,20 +2,32 @@
     <head>
         <title>Profile</title>
         <style>
+            .form{
+                width: 500px;
+                height: 150px;
+                margin: auto;
+                text-align: center;
+                background-color:cyan;
+            }
             body{
                 background-color: black;
                 font-family: Georgia;
                 font-style: italic;
             }
             h3{
+                background-color: brown;
                 color: cornsilk;
                 text-align: center;
+                width: 500px;
+                height: 30px;
+                margin-left: auto;
+                margin-right: auto;
             }
             label{
-                color:burlywood;
+                color: darksalmon;
                 size: 12px;
             }
-            .text-box{
+            #text-box{
                 width: 250px;
                 background-color: white;
                 border-color: crimson;
@@ -23,16 +35,45 @@
                 border-style: solid;
                 overflow: auto;
             }
+            input{
+                background-color: white;
+                border-color: darksalmon;
+                border-width: 2px;
+                border-style: solid;
+                margin: 2px;
+            }            
+            .submit{
+                width: 100px;
+                height: 30px;
+                margin: auto;
+                margin-top: 10px;
+                color: darkblue;
+            }
+            h2{
+                color: burlywood;
+                text-align: center;
+            }
             </style>
     </head>
     <body>
         <h3>Welcome {{username}}!</h3>
-        <!-- <label for="text-box">Your text box : </label>
-        <form action="/profile/receivedata" method="POST">
-        <input type="text" class="text-box" name="text">
-        <input type="submit"> -->
-        <!-- <p name="username">{{username}}</p>
-        <!-- </form> -->
-        <!-- <a href="/profile/data">Data</a> --> -->
+        <form action="/profile/receivedata" method="POST" class="form">
+            <label for="text">Your data</label>
+        <input type="text" name="text">
+        <input name="name" type="hidden" value={{username}}>
+        <input type="hidden" name="email" value={{email}}>
+        <br>
+        <br>
+        <input type="submit" value="Submit" class="submit">
+        </form>
+        
+        <form action="/profile/readdata" method="POST" class="submit">
+            <input type="hidden" value={{username}} name="username">
+            <input type="hidden" name="email" value={{email}}>
+            <input type="submit" value="Your data">
+        </form>
+
+        <a href="/"><h2>Logout</h2></a>
+
     </body>
 </html>

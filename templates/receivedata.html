@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Data Store</title>
+    </head>
+    <body>
+        <h3>Data received successfully!</h3>
+        <form action="/profile/readdata" method="POST">
+        <input type="hidden" value={{name}} name="username">
+        <input type="hidden" name="email" value={{email}}>
+        <input type="submit" value="Your data">
+        </form>
+        <form action="/profile" method="POST">
+        <input type="hidden" name="username" value={{name}}>
+        <input type="hidden" name="email" value={{email}}>
+        <input type="submit" value="Profile">
+        </form>
+    </body>
+</html>
