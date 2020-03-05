@@ -1,7 +1,10 @@
 from flask import Flask 
 from flask import render_template
 from flask import request
+from datetime import datetime as dt
+import os
 
+now=dt.today()
 info={}
 
 app=Flask(__name__)
@@ -36,16 +39,34 @@ def main4():
 @app.route('/profile/receivedata',methods=['POST'])
 def main5():
     text=request.form['text']
+    title=request.form['title']
     username=request.form['name']
     email=request.form['email']
-    with open(f'Info/{username}.txt','a') as file:
+    now=dt.today()
+    try:
+        os.mkdir(f'Info/{username}',511)
+    except:
+        pass
+    now=str(now)
+    now=now.split('.')
+    now=now[0]
+    now=now.replace(':','-')
+    with open(f'Info/{username}/{title}-{now}.txt','a') as file:
         file.write(text)
     return render_template('receivedata.html',name=username,email=email)
-@app.route('/profile/readdata',methods=['POST'])
+@app.route('/profile/datamanager',methods=['POST'])
 def main6():
     username=request.form['username']
     email=request.form['email']
-    with open(f'Info/{username}.txt','r') as file:
+    filelist=os.listdir(f"Info/{username}")
+    return render_template("datamanager.html",filelist=filelist,username=username,email=email)
+@app.route('/profile/datamanager/readdata',methods=['POST'])
+def main7():
+    username=request.form['username']
+    email=request.form['email']
+    filename=request.form['filename']
+    filename=filename.replace('.txt','')
+    with open(f'Info/{username}/{filename}.txt','r') as file:
         text=file.read()
-    return f'Your Data :\n{text}'+render_template('readdata.html',username=username,email=email)
+    return f'<h3>Your Data :</h3><p>{text}</p>'+render_template('readdata.html',username=username,email=email)
 app.run(debug=True)

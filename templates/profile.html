@@ -58,8 +58,11 @@
     <body>
         <h3>Welcome {{username}}!</h3>
         <form action="/profile/receivedata" method="POST" class="form">
-            <label for="text">Your data</label>
-        <input type="text" name="text">
+        <label for="text">Write Note here : </label>
+        <input type="text" name="text" placeholder="Your data">
+        <br>
+        <label for="title">Note title</label>
+        <input type="text" name="title" placeholder="Title">
         <input name="name" type="hidden" value={{username}}>
         <input type="hidden" name="email" value={{email}}>
         <br>
@@ -67,7 +70,7 @@
         <input type="submit" value="Submit" class="submit">
         </form>
         
-        <form action="/profile/readdata" method="POST" class="submit">
+        <form action="/profile/datamanager" method="POST" class="submit">
             <input type="hidden" value={{username}} name="username">
             <input type="hidden" name="email" value={{email}}>
             <input type="submit" value="Your data">

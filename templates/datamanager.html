@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>ALl data</title>
+        <style>
+            body{
+                background-color: black;
+            }
+            form{
+                width: 500px;
+                height: 150px;
+                margin: auto;
+                text-align: center;
+                background-color: brown;
+            }
+            h3{
+                color: aliceblue;
+                text-align: center;
+                background-color: darkcyan;
+                width: 500px;
+                margin: auto;
+            }
+            h4{
+                color: cyan;
+            }
+            input{
+                background-color:white;
+                border-width: 2px;
+                border-color:blue;
+                border-style: solid;
+                margin: 2px;
+            }
+            p{
+                color: blanchedalmond;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Your file list :</h3>
+        <p>{{filelist}}</p>
+        <form action="/profile/datamanager/readdata" method="POST">
+            <h4>Write file name which you want to read : </h4>
+            <input type="text" name="filename">
+            <input type="hidden" value="{{username}}" name="username">
+            <input type="hidden" value="{{email}}" name="email">
+            <input type="submit">
+        </form>
+    </body>
+</html>
