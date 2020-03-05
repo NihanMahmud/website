@@ -20,7 +20,6 @@ def main2():
     if username in info.keys() or email in info.values():
         return render_template('taken.html')
     info[username]=email
-    user_name=username
     return render_template('NextPage.html',name=username)
 
 @app.route('/login')
